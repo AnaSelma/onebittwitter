@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_27_170835) do
+ActiveRecord::Schema.define(version: 2020_06_27_202432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tweets", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id", null: false
+    t.integer "tweet_original_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tweets_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -37,4 +46,5 @@ ActiveRecord::Schema.define(version: 2020_06_27_170835) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
+  add_foreign_key "tweets", "users"
 end
