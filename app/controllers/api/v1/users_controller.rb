@@ -1,22 +1,28 @@
-class Api::V1::UsersController < ApplicationController
-  def create
-  end
+module Api
+  module V1
+    class UsersController < ApplicationController
+      
+      def create
+      end
 
-  def destry
-  end
+      def destry
+      end
 
-  def update
-  end
+      def update
+      end
 
-  def current
-  end
+      def current
+      end
 
-  def show
-  end
+      def show
+       
+      end
 
-  def following
-  end
+      def following
+      end
 
-  def followers
+      def followers
+      end
+    end
   end
 end

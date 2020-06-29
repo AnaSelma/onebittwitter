@@ -3,6 +3,8 @@ class Api::V1::TweetsController < ApplicationController
   end
 
   def show
+    @tweet = Tweet.last
+    render json: @tweet
   end
 
   def create
