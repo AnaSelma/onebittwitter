@@ -24,8 +24,9 @@ module Api
       end
 
       def liked
-        object.liked_by current_user
+        object.liked_by @current_user
       end
+
     end
   end
 end
