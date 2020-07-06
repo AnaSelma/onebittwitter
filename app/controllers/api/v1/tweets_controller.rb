@@ -1,7 +1,7 @@
 module Api
   module V1
     class TweetsController < Api::V1::ApiController
-      before_action :set_current_user
+      before_action { current_user }
       before_action :set_tweet, except: %i[create index]
       before_action :authenticate_user, except: [:show, :index]
       load_and_authorize_resource except: %i[index show]
@@ -46,11 +46,7 @@ module Api
 
         def tweet_params
           params.require(:tweet).permit(:body, :tweet_original_id)
-        end
-
-        def set_current_user
-          @current_user = (current_user)? current_user : nil
-        end
+        end        
     end
   end
 end
